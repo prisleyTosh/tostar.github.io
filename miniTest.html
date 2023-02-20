@@ -145,11 +145,26 @@
         font-size: 18px;
       }
 
+      .display-board {
+        width: 685px;
+        background-color: rgb(78, 5, 33);
+        border-radius: 4px;
+        padding-left: 15px;
+        color: whitesmoke;
+      }
+  #item-value {
+    display: inline-block;
+    margin-right: 20px;
+    color: whitesmoke;
+
+  }
+
   </style>
 </head>
 <body>
   <div class="largeContainer">
-    <div colspan="3"> <input class="display-box" type="text" id="result" disabled /> </div>
+    <div colspan="10" class="display-board"><p id="item-index"></p>
+      <p id="item-value"></p><input class="display-box" type="text" id="result" disabled /> </div>
     <div class="container">
       <button class="sphere" type="button" value="1" onclick="display('1')">
         <div class="egg">1</div>
@@ -207,7 +222,7 @@
       <div class="plus" type="button" value="1" onclick="display('+')"><img src="plus2.jpg" alt="plus sign"></div>
       <div class="minus" type="button" value="1" onclick="display('-')"><img src="minus1.jpg" alt="minus sign"></div>
       <button class="nxt" type="button" value="=" onclick="calculate()" id="btn">Total</button>
-      <button class="nxt" type="button" value=" " onclick="clearScreen()" id="btn">Next</button>
+      <button class="nxt" type="button" value=" " onclick="clearScreen()" id="next-button" >Next</button>
     </div>
     <script>
       // This function evaluates the expression and returns result
@@ -220,7 +235,31 @@ function calculate() {
 function clearScreen() {
     document.getElementById("result").value = "";
 }
+      // Retrieve the array from local storage
+      const myArray = JSON.parse(localStorage.getItem('myArray'));
+      let currentItemIndex = 0;
 
+      // Display the current item in the array on the page
+      function displayCurrentItem() {
+        const currentItem = myArray[currentItemIndex];
+        const itemIndexElement = document.getElementById('item-index');
+        itemIndexElement.textContent = `Player ${currentItemIndex + 1} of ${myArray.length}`;
+        const itemValueElement = document.getElementById('item-value');
+        itemValueElement.textContent = currentItem;
+      }
+
+      // Handle the "Next" button click event
+      const nextButton = document.getElementById('next-button');
+      nextButton.addEventListener('click', () => {
+        currentItemIndex++;
+        if (currentItemIndex >= myArray.length) {
+          currentItemIndex = 0;
+        }
+        displayCurrentItem();
+      });
+
+      // Display the first item in the array
+      displayCurrentItem();
     </script>
   </div>
   

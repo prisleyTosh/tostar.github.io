@@ -1,0 +1,91 @@
+<!DOCTYPE >
+<html lang="en">
+  <head>
+    <title>add players</title>
+    <style>
+      body {
+            background-image: url(poolballs.jpg);
+            background-repeat: repeat;
+            
+        }
+      .display-box {
+          padding: 20px;
+          text-align: left;
+          background-color:whitesmoke;
+          opacity: 0.8;
+          border: 1px solid white;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        #nextButton {
+            display: flex;
+            align-self: right;
+            background-color: skyblue;
+            border-color: skyblue;
+            border-radius: 3px;
+            width: 50px;
+            margin: 0 auto;
+        }
+
+    </style>
+  </head>
+  <body>
+    <script>
+      localStorage.clear();
+    </script>
+    <form id="player-form">
+      <input type="text" id="username" placeholder="Enter your name">
+      <button type="submit" onclick="addAndDisplayUsername()" id="add-button"> Add Player </button>
+    </form>
+    <div class="display-box" id="display"></div>
+    <form id="usernameForm">
+      <input type="hidden" name="names" id="namesInput">
+    </form>
+    
+    <div class="display-box">
+      <ol id="display">
+        <!-- The list of usernames will be added here -->
+      </ol>
+      <button type="submit" id="nextButton">Next</button>
+    </div>
+    
+    <script>
+      // Retrieve existing array from local storage, or create an empty array if no array is found
+      const myArray = JSON.parse(localStorage.getItem('myArray')) || [];
+
+      // Get the form and list elements
+      const myForm = document.getElementById('player-form');
+      const myList = document.getElementById('display');
+
+      // Add event listener to the form
+      myForm.addEventListener('submit', function(event) {
+      // Prevent form submission
+      event.preventDefault();
+
+      // Get input value
+      const newItemInput = document.getElementById('username');
+      const newItemValue = newItemInput.value;
+
+      // Add new item to array
+      myArray.push(newItemValue);
+
+      // Store the updated array in local storage
+      localStorage.setItem('myArray', JSON.stringify(myArray));
+
+      // Add new item to list
+      const newItem = document.createElement('li');
+      newItem.innerText = newItemValue;
+      myList.appendChild(newItem);
+
+      // Clear input field
+      newItemInput.value = '';
+      });
+        document.getElementById("nextButton").addEventListener("click", function() {
+        window.location.href = "miniTest.html";
+});
+
+
+  </script>
+  </body>
+</html>
