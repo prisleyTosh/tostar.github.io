@@ -1,6 +1,8 @@
-<!DOCTYPE >
+<!DOCTYPE html>
 <html lang="en">
   <head>
+    <title> Add players</title>
+    <meta charset="UTF-8">
     <title>add players</title>
     <style>
       body {
@@ -68,7 +70,7 @@
       const newItemValue = newItemInput.value;
 
       // Add new item to array
-      myArray.push(newItemValue);
+      myArray.push({ name: newItemValue, score: 0 });
 
       // Store the updated array in local storage
       localStorage.setItem('myArray', JSON.stringify(myArray));

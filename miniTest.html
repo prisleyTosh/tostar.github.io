@@ -1,20 +1,70 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /* styles for screens smaller than 768px */
+@media (max-width: 767px) {
+  .largeContainer {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .container {
+    width: 100%;
+    margin-right: 0;
+  }
+  .sphere {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+  }
+  .egg {
+    width: 35px;
+    height: 45px;
+    font-size: 25px;
+  }
+  .display-board {
+    width: 100%;
+  }
+}
+
+/* styles for screens larger than 768px */
+@media (min-width: 768px) {
+  .largeContainer {
+    max-width: 1366px;
+    margin: 0 auto;
+  }
+  .container {
+    width: 700px;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  .sphere {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+  }
+  .egg {
+    width: 45px;
+    height: 58px;
+    font-size: 35px;
+  }
+  .display-board {
+    width: 685px;
+  }
+}
+
     body {
       background-image: url(timurgarifov190300032.jpg);
       background-size: cover;
       background-repeat: no-repeat;
-      height: 700px;
+      height: 100%;
       max-width: 1366px;
 
     }
     .largeContainer {
-    width:800px;
-    border-radius: 10px;
-    margin: 0 auto;
+    
+
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -26,7 +76,6 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  width:700px;
   background-color: rgb(78, 5, 33);
   margin-right: 10px;
   margin-top: 10px;
@@ -93,7 +142,7 @@
 }
 
 .sphere {
-  width: 100px;
+  
   height: 100px;
   border-radius: 50% 50% 50% 50%;
   display: flex;
@@ -103,23 +152,26 @@
 }
 
 .egg {
-  width: 45px;
-  height: 58px;
+ 
   background-color: whitesmoke;
   border-radius: 50% 50% 50% 50%;
   text-align: center;
-  font-size: 38px;
   color: black;
 }
 .sideplace {
-  width: 90px;
-  height: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
-
-
+.sideplace > * {
+  margin-right: 10px;
+}
+#addScore {
+  padding-right: 10px;
+}
+#decrementScore {
+  padding-right: 10px;
+}
 
 .plus,
       .minus {
@@ -163,68 +215,66 @@
 </head>
 <body>
   <div class="largeContainer">
-    <div colspan="10" class="display-board"><p id="item-index"></p>
-      <p id="item-value"></p><input class="display-box" type="text" id="result" disabled /> </div>
+    <div colspan="10" class="display-board"><p id="display-players"></p>
+      <input class="display-box" type="text" id="result" disabled /> </div>
     <div class="container">
-      <button class="sphere" type="button" value="1" onclick="display('1')">
+      <button class="sphere" type="button" value="1" onclick="displayresults('16')">
         <div class="egg">1</div>
       </button>
-      <button class="sphere" type="button" value="1" onclick="display('2')">
+      <button class="sphere" type="button" value="1" onclick="displayresults('17')">
         <div class="egg">2</div>
       </button>
-      <button class="sphere" type="button" value="1" onclick="display('3')">
+      <button class="sphere" type="button" value="1" onclick="displayresults('3')">
         <div class="egg">3</div>
       </button>
-      <button class="sphere" type="button" value="1" onclick="display('4')">
+      <button class="sphere" type="button" value="1" onclick="displayresults('4')">
         <div class="egg">4</div>
       </button>
-      <button class="sphere" type="button" value="1" onclick="display('5')">
+      <button class="sphere" type="button" value="1" onclick="displayresults('5')">
         <div class="egg">5</div>
       </button>
-      <button class="sphere" type="button" value="1" onclick="display('6')">
+      <button class="sphere" type="button" value="1" onclick="displayresults('6')">
         <div class="egg">6</div>
       </button>
-      <button class="sphere" type="button" value="1" onclick="display('7')">
+      <button class="sphere" type="button" value="1" onclick="displayresults('7')">
         <div class="egg">7</div>
       </button>
-      <button class="sphere" type="button" value="1" onclick="display('8')">
+      <button class="sphere" type="button" value="1" onclick="displayresults('8')">
         <div class="egg">8</div>
       </button>
-      <button class="sphere" type="button" value="1" onclick="display('9')">
+      <button class="sphere" type="button" value="1" onclick="displayresults('9')">
         <div class="egg">9</div>
       </button>
-      <button class="sphere" type="button" value="1" onclick="display('10')">
+      <button class="sphere" type="button" value="1" onclick="displayresults('10')">
         <div class="egg">10</div>
       </button>
-      <button class="sphere" type="button" value="1" onclick="display('11')">
+      <button class="sphere" type="button" value="1" onclick="displayresults('11')">
         <div class="egg">11</div>
       </button>
-      <button class="sphere" type="button" value="1" onclick="display('12')">
+      <button class="sphere" type="button" value="1" onclick="displayresults('12')">
         <div class="egg">12</div>
       </button>
-      <button class="sphere" type="button" value="1" onclick="display('13')">
+      <button class="sphere" type="button" value="1" onclick="displayresults('13')">
         <div class="egg">13</div>
       </button>
-      <button class="sphere" type="button" value="1" onclick="display('14')">
+      <button class="sphere" type="button" value="1" onclick="displayresults('14')">
         <div class="egg">14</div>
       </button>
-      <button class="sphere" type="button" value="1" onclick="display('15')">
+      <button class="sphere" type="button" value="1" onclick="displayresults('15')">
         <div class="egg">15</div>
-      </button>
-      <script>
-        function display(value) {
-    document.getElementById("result").value += value;
-}
- 
-      </script>      
+      </button>          
     </div>
     <div class="sideplace">
-      <div class="plus" type="button" value="1" onclick="display('+')"><img src="plus2.jpg" alt="plus sign"></div>
-      <div class="minus" type="button" value="1" onclick="display('-')"><img src="minus1.jpg" alt="minus sign"></div>
+      <div class="plus" type="button" id="addScore" onclick="display('+')"><img src="plus2.jpg" alt="plus sign"></div>
+      <div class="minus" type="button" id="decrementScore" onclick="display('-')"><img src="minus1.jpg" alt="minus sign"></div>
       <button class="nxt" type="button" value="=" onclick="calculate()" id="btn">Total</button>
       <button class="nxt" type="button" value=" " onclick="clearScreen()" id="next-button" >Next</button>
     </div>
     <script>
+        function displayresults(value) {
+    document.getElementById("result").value += value;
+}
+
       // This function evaluates the expression and returns result
 function calculate() {
     var p = document.getElementById("result").value;
@@ -235,31 +285,57 @@ function calculate() {
 function clearScreen() {
     document.getElementById("result").value = "";
 }
-      // Retrieve the array from local storage
-      const myArray = JSON.parse(localStorage.getItem('myArray'));
-      let currentItemIndex = 0;
+// Retrieve existing array from local storage, or create an empty array if no array is found
+const myArray = JSON.parse(localStorage.getItem('myArray')) || [];
 
-      // Display the current item in the array on the page
-      function displayCurrentItem() {
-        const currentItem = myArray[currentItemIndex];
-        const itemIndexElement = document.getElementById('item-index');
-        itemIndexElement.textContent = `Player ${currentItemIndex + 1} of ${myArray.length}`;
-        const itemValueElement = document.getElementById('item-value');
-        itemValueElement.textContent = currentItem;
-      }
+// Get the display, input, and button elements
+const display = document.getElementById('display-players');
+const result = document.getElementById('result');
+const addScore = document.getElementById('addScore');
+const decrementScore = document.getElementById('decrementScore');
+const btn = document.getElementById('btn');
+const nextButton = document.getElementById('next-button');
 
-      // Handle the "Next" button click event
-      const nextButton = document.getElementById('next-button');
-      nextButton.addEventListener('click', () => {
-        currentItemIndex++;
-        if (currentItemIndex >= myArray.length) {
-          currentItemIndex = 0;
-        }
-        displayCurrentItem();
-      });
+let index = 0;
 
-      // Display the first item in the array
-      displayCurrentItem();
+// Function to display the name and score at the current index
+function displayPlayer() {
+  const player = myArray[index];
+  display.innerText = `${player.name}: ${player.score}`;
+  result.value = 0;
+}
+
+// Add event listeners to increment and decrement the score
+addScore.addEventListener('click', function() {
+  const player = myArray[index];
+  player.score += Number(result.value);
+  localStorage.setItem('myArray', JSON.stringify(myArray));
+  displayPlayer();
+});
+
+decrementScore.addEventListener('click', function() {
+  const player = myArray[index];
+  player.score -= Number(result.value);
+  localStorage.setItem('myArray', JSON.stringify(myArray));
+  displayPlayer();
+});
+
+// Add event listener to update the array with the new scores
+btn.addEventListener('click', function() {
+  const player = myArray[index];
+  player.score = Number(display.innerText.split(':')[1].trim());
+  localStorage.setItem('myArray', JSON.stringify(myArray));
+});
+
+// Add event listener to display the next player when button is clicked
+nextButton.addEventListener('click', function() {
+  index = (index + 1) % myArray.length;
+  displayPlayer();
+});
+
+// Call displayPlayer function to display the first player
+displayPlayer();
+
     </script>
   </div>
   
