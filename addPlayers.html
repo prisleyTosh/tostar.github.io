@@ -15,6 +15,8 @@
         .inputnames input[type="text"] {
           margin-right: 0;
           margin-bottom: 10px;
+          width: 20%;
+          height: 20px;
         }
       }
       
@@ -51,11 +53,13 @@
         }
         #nextButton {
 
-            background-color: rgb(92, 76, 236);
-            border-color: skyblue;
+            background-color: inherit;
+            border-color: whitesmoke;
             border-radius: 5px;
             width: 50px;
             text-align: center;
+            color: whitesmoke;
+            margin-left: 200px;
         }
         #username {
           border: none;
@@ -76,10 +80,12 @@
           height: 20px;
           border-color: whitesmoke;
         }
-        #player-form{
+        #player-form {
           border: 1px solid whitesmoke;
-          border-radius: 5px;
-        
+          border-radius: 8px;
+          padding: 10px;
+          width: 80%;
+          height: auto;
         }
        
       
@@ -91,13 +97,13 @@
       localStorage.clear();
     </script>
     <form id="player-form">
-      <div class="inputnames">
-      <input type="text" id="username" placeholder="Enter your name">
-      <button type="submit" onclick="addAndDisplayUsername()" id="add-button">√</button>
-    </div>
       <div class="display-box" id="display"></div>
-      
-      <button type="submit" id="nextButton">Next</button>
+
+      <div class="inputnames">
+      <input type="text" id="username" placeholder="Enter Name">
+      <button type="submit" onclick="addAndDisplayUsername()" id="add-button">√</button>
+    </div>      
+      <button type="submit" id="nextButton">Next</button><br><br>
     </form>
     
     <script>
